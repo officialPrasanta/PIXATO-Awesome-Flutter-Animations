@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pixato/pages/animatedIcons/animated_icon_page.dart';
 import 'package:pixato/pages/clockAnimation/clockanim.dart';
 
 void main() {
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'Pixato- Awesome Flutter Animations',
-      home: ClockAnimationPage(),
+      // home: ClockAnimationPage(),
+      home: AnimatedIconPage(),
     );
   }
 }
