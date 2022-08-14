@@ -102,12 +102,6 @@ class _WeavyWaveState extends State<WeavyWave> with TickerProviderStateMixin {
         _heightPercentage =
             widget.heightPercentage.sublist(0, widget.layerCount);
       }
-
-      //print all lists
-      // print('Duration : $_durations');
-      // print('Wave Frequencies : $_waveFrequencies');
-      // print('Colors : $_colors');
-      // print('heightPercentage : $_heightPercentage');
     } else if (widget.layerCount == 1) {
       _durations = [widget.durations[0]];
       _waveFrequencies = [widget.waveFrequencies[0]];
@@ -144,37 +138,6 @@ class _WeavyWaveState extends State<WeavyWave> with TickerProviderStateMixin {
       controller.forward();
       return value;
     }).toList();
-
-    // _wavePhase =
-    //     Tween<double>(begin: widget.wavePhase, end: 360 + widget.wavePhase)
-    //         .animate(curve)
-    //       ..addListener(() {
-    //         setState(() {});
-    //       });
-    // Timer.periodic(Duration(seconds: 1), (timer) => setState(() {}));
-
-    // _waveAnimController = AnimationController(
-    //     duration: Duration(milliseconds: widget.duration), vsync: this);
-
-    // _wavePhase =
-    //     Tween<double>(begin: widget.wavePhase, end: 360 + widget.wavePhase)
-    //         .animate(_waveAnimController)
-    //       ..addListener(() {
-    //         setState(() {});
-    //       });
-
-    // _wavePhase.addStatusListener((status) {
-    //   switch (status) {
-    //     case AnimationStatus.completed:
-    //       _waveAnimController.reverse();
-    //       break;
-    //     case AnimationStatus.dismissed:
-    //       _waveAnimController.forward();
-    //       break;
-    //     default:
-    //       break;
-    //   }
-    // });
   }
 
   void _disposeControllers() {
