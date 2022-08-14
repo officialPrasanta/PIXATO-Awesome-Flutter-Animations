@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pixato/common/appbar.dart';
 
 class AnimatedIconPage extends StatefulWidget {
   const AnimatedIconPage({Key? key}) : super(key: key);
@@ -37,19 +38,20 @@ class _AnimatedIconPageState extends State<AnimatedIconPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: appBar(),
+        extendBodyBehindAppBar: true,
         body: Container(
-      color: const Color(0xFF13243D),
-      child: Center(
-        child: IconButton(
-            iconSize: 48,
-            onPressed: _trigger,
-            icon: AnimatedIcon(
-              icon: AnimatedIcons.close_menu,
-              progress: controller,
-              color: Colors.orange,
-            )),
-      ),
-    ));
+          color: const Color(0xFF13243D),
+          child: Center(
+            child: IconButton(
+                iconSize: 48,
+                onPressed: _trigger,
+                icon: AnimatedIcon(
+                  icon: AnimatedIcons.close_menu,
+                  progress: controller,
+                  color: Colors.orange,
+                )),
+          ),
+        ));
   }
 }
-
