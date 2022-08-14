@@ -130,7 +130,9 @@ class _WeavyWaveState extends State<WeavyWave> with TickerProviderStateMixin {
           Tween<double>(begin: widget.wavePhase, end: 360 + widget.wavePhase)
               .animate(curve)
             ..addListener(() {
-              setState(() {});
+              if (mounted) {
+                setState(() {});
+              }
             });
       value.addStatusListener((status) {
         if (status == AnimationStatus.completed) {

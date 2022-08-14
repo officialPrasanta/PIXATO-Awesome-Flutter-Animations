@@ -6,6 +6,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:pixato/common/appbar.dart';
 import 'package:pixato/pages/clockAnimation/Helpers/custom_clock_painter.dart';
 import 'package:pixato/pages/clockAnimation/Helpers/custom_wave_widget.dart';
 
@@ -27,12 +28,14 @@ class _ClockAnimationPageState extends State<ClockAnimationPage>
   void initState() {
     // now = DateTime.now();
     date = dateFormat.format(now);
-    Timer.periodic(
-        Duration(seconds: 1),
-        (timer) => setState(() {
-              now = DateTime.now();
-              time = timeFormat.format(now);
-            }));
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      if (mounted) {
+        setState(() {
+          now = DateTime.now();
+          time = timeFormat.format(now);
+        });
+      }
+    });
     super.initState();
   }
 
@@ -44,6 +47,8 @@ class _ClockAnimationPageState extends State<ClockAnimationPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: appBar(),
       body: Container(
         alignment: Alignment.center,
         color: Color(0xFF13243D),
